@@ -6,6 +6,9 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject badFall;
     [SerializeField] private GameObject goodFall;
+
+    private bool isGameOver = false;
+    public bool IsGameOver => isGameOver;
     
     private void Start()
     {
@@ -22,6 +25,6 @@ public class Spawner : MonoBehaviour
         obj.transform.position = new Vector3(xPos, transform.position.y, 0);
         
         yield return new WaitForSeconds(time);
-        StartCoroutine(Spawn());
+        if(!AvoidManager.Instance.IsGameOver) StartCoroutine(Spawn());
     }
 }

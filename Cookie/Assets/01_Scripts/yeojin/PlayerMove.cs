@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        if (AvoidManager.Instance.IsGameOver) return;
         if (Input.GetMouseButtonDown(0))
         {
             lastMousePosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
