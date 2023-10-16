@@ -28,6 +28,7 @@ public class Falling : MonoBehaviour
             else if(this.gameObject.tag == "Bad")
             {
                 Debug.Log("GameOver. . .");
+                AvoidManager.Instance.GameOver();
             }
         }
         Destroy(gameObject);

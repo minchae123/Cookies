@@ -8,6 +8,7 @@ public class AvoidManager : MonoBehaviour
     public static AvoidManager Instance;
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    //[SerializeField] private 
     private int score = 0;
     
     private void Awake()
@@ -23,6 +24,11 @@ public class AvoidManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = $"Score: {score}";
+    }
+
+    public void GameOver()
+    {
+
     }
 
     public void AddScore()
