@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Spawner : MonoBehaviour
+{
+    [SerializeField] private GameObject badFall;
+    [SerializeField] private GameObject goodFall;
+    
+    private void Start()
+    {
+        StartCoroutine(Spawn());
+    }
+
+    private IEnumerator Spawn()
+    {
+        float time = Random.Range(0.3f, 2.5f);
+        float xPos = Random.Range(-2f, 2f);
+        bool rand = (Random.value > 0.5f);
+
+        GameObject obj = rand ? Instantiate(badFall) : Instantiate(goodFall); // ·£´ý»ý¼º
+        obj.transform.position = new Vector3(xPos, transform.position.y, 0);
+        
+        yield return new WaitForSeconds(time);
+        StartCoroutine(Spawn());
+    }
+}
