@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
 
 	[SerializeField] private TextMeshProUGUI secondPerTxt;
 	[SerializeField] private TextMeshProUGUI clickPerTxt;
+	[SerializeField] private TextMeshProUGUI popularTxt;
 
 	public void SetSecondPer(float per)
 	{
@@ -28,5 +29,10 @@ public class UIManager : MonoBehaviour
 	public void SetClickPer(float per)
 	{
 		clickPerTxt.text = per.ToString() + "원 / 클릭당";
+	}
+
+	public void ShowPopularity(float value)
+	{
+		popularTxt.text = value.ToString() + " 인기";
 	}
 }

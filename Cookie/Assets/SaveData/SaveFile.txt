@@ -1,1 +1,1 @@
-{"money":0,"popularity":0,"secondLevel":0,"clickLevel":0}
+{"money":0,"popularity":378,"secondLevel":1,"clickLevel":1,"secondPer":0,"clickPer":0}
