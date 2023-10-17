@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 571235579}
   - component: {fileID: 571235578}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: GameoverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

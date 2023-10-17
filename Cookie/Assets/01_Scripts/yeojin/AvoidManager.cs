@@ -7,9 +7,7 @@ using DG.Tweening;
 public class AvoidManager : MonoBehaviour
 {
     public static AvoidManager Instance;
-    
-    private Spawner spawner;
-    
+        
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject panel;
 
@@ -22,10 +20,9 @@ public class AvoidManager : MonoBehaviour
     {
         if (Instance != null) 
         {
-            Debug.LogError("Multiple");
+            Debug.LogError("Multiple AvoidManager");
         }
         Instance = this;
-        spawner = transform.GetComponentInChildren<Spawner>();
     }
 
     private void Start()
@@ -41,8 +38,8 @@ public class AvoidManager : MonoBehaviour
 
     public void GameOver()
     {
-        panel.transform.DOLocalMoveY(0, 1.5f);
         isGameOver = true;
+        panel.transform.DOLocalMoveY(0, 1.5f);
     }
 
     public void AddScore()

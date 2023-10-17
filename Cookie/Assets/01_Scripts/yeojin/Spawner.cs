@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         float xPos = Random.Range(-2f, 2f);
         bool rand = (Random.value > 0.5f);
 
-        GameObject obj = rand ? Instantiate(badFall) : Instantiate(goodFall); // 罚待积己
+        GameObject obj = rand ? Instantiate(badFall) : Instantiate(goodFall); // 50% 罚待积己
         obj.transform.position = new Vector3(xPos, transform.position.y, 0);
         
         yield return new WaitForSeconds(time);
