@@ -13,6 +13,11 @@ public class Falling : MonoBehaviour
 
     private void Update()
     {
+        if(AvoidManager.Instance.IsGameOver)
+        {
+            Destroy(gameObject);
+            return;
+        }
         transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, 0);
     }
 
