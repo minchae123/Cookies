@@ -67,6 +67,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadSet()
 	{
+        user.clickPer = user.clickLevel * 2;
+        user.secondPer = (ulong)(user.secondLevel * 1.5f);
+
         UIManager.Instance.SetClickPer(user.clickPer);
         UIManager.Instance.SetSecondPer(user.secondPer);
         UIManager.Instance.ShowPopularity(user.popularity);
@@ -74,8 +77,15 @@ public class GameManager : MonoBehaviour
 
     public void ScreenTouch()
     {
-        user.popularity += user.clickLevel * 2;
+        user.popularity += user.clickPer;
         UIManager.Instance.ShowPopularity(user.popularity);
         Save();
 	}
+
+    public void SecondPer()
+	{
+        user.popularity += user.secondPer;
+        UIManager.Instance.ShowPopularity(user.popularity);
+	    Save();
+    }
 }
