@@ -7,7 +7,7 @@ public class MergeSpawner : MonoBehaviour
     public static MergeSpawner Instance;
 
     private GameObject currentObj;
-    [SerializeField] private MergeObjectSO mergeSO;
+    [SerializeField] private MergeObjectSO[] mergeSO;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class MergeSpawner : MonoBehaviour
     private void Start()
     {
         int rand = Random.Range(0, 2); // 0~2 까지 레벨이 랜덤하게 나옴
-        currentObj = mergeSO.mergeList[rand].mergePrefab;
+        currentObj = mergeSO[rand].mergePrefab;
         Instantiate(currentObj);
     }
 
@@ -26,8 +26,8 @@ public class MergeSpawner : MonoBehaviour
     {
         currentObj = null;
         int rand = Random.Range(0, 2); // 0~2 까지 레벨이 랜덤하게 나옴
-        currentObj = mergeSO.mergeList[rand].mergePrefab;
-        print(mergeSO.mergeList[rand].level);
+        currentObj = mergeSO[rand].mergePrefab;
+        print(mergeSO[rand].level);
         Instantiate(currentObj);
     }
 }

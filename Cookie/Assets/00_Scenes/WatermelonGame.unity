@@ -457,4 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf16cbabb76f72469f747e7fa34220f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mergeSO: {fileID: 11400000, guid: 7f4ea65b03e06ea449c7d5029cc9ae3e, type: 2}
+  mergeSO:
+  - {fileID: 11400000, guid: 7f4ea65b03e06ea449c7d5029cc9ae3e, type: 2}
+  - {fileID: 11400000, guid: 8d8f85409493a09448a521a8bf91cf86, type: 2}
+  - {fileID: 11400000, guid: cdb1e09b923385b49b053d6643f875e4, type: 2}

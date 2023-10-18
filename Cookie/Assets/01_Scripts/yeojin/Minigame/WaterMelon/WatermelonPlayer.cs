@@ -5,10 +5,7 @@ using UnityEngine;
 public class WatermelonPlayer : MiniGamePlayer
 {
     [SerializeField] private float speed = 5f;
-
     private Rigidbody2D rigid;
-    private bool isCollision = false;
-    private bool firstCollision = true;
 
     protected override void Awake()
     {
@@ -18,22 +15,20 @@ public class WatermelonPlayer : MiniGamePlayer
 
     private void Start()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, 3.5f, 0);
     }
-
     public override void PlayerMove()
     {
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.y = transform.position.y;
         mousePos.z = 0;
-        transform.position = Vector3.Slerp(transform.position, mousePos, speed * Time.deltaTime);
+        mousePos.y = 3.5f;
+        // transform.position = mousePos; // 이 부분을 주석 처리하여 변경
+        rigid.MovePosition(mousePos); // rigidbody를 통한 위치 변경으로 수정
     }
 
     private void Update()
     {
         PlayerRestrictScreen();
-        if (isCollision) return;
-
         if (Input.GetMouseButton(0))
         {
             PlayerMove();
@@ -46,12 +41,7 @@ public class WatermelonPlayer : MiniGamePlayer
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("무언가에 닿음");
-        isCollision = true;
-        if(firstCollision)
-        {
-            MergeSpawner.Instance.ReSpawn();
-            firstCollision = false;
-        }
+        MergeSpawner.Instance.ReSpawn();
+        Destroy(this);
     }
 }
