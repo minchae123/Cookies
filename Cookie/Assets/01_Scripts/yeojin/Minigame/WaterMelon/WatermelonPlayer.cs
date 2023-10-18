@@ -8,12 +8,19 @@ public class WatermelonPlayer : MiniGamePlayer
 
     private Rigidbody2D rigid;
     private bool isCollision = false;
+    private bool firstCollision = true;
 
     protected override void Awake()
     {
         base.Awake();
         rigid = GetComponent<Rigidbody2D>();
     }
+
+    private void Start()
+    {
+        transform.position = new Vector3(0, 0, 0);
+    }
+
     public override void PlayerMove()
     {
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -39,7 +46,12 @@ public class WatermelonPlayer : MiniGamePlayer
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("무언가에 닿음");
+        //Debug.Log("무언가에 닿음");
         isCollision = true;
+        if(firstCollision)
+        {
+            MergeSpawner.Instance.ReSpawn();
+            firstCollision = false;
+        }
     }
 }
