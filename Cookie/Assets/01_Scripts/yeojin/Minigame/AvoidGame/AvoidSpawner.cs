@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class AvoidSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject badFall;
     [SerializeField] private GameObject goodFall;

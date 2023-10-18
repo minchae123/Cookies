@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class AvoidPlayer : MiniGamePlayer
 {
-    private Camera mainCam;
     private Vector3 lastPos;
 
-    private void Awake()
+    public override void PlayerMove()
     {
-        mainCam = Camera.main;
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        transform.position += new Vector3(mousePos.x - lastPos.x, 0, 0);
+        lastPos = mousePos;
     }
 
     private void Update()
@@ -19,12 +20,10 @@ public class PlayerMove : MonoBehaviour
         {
             lastPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         }
-
         if (Input.GetMouseButton(0))
         {
-            Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            transform.position += new Vector3(mousePos.x - lastPos.x, 0, 0);
-            lastPos = mousePos;
+            PlayerMove();
+            PlayerRestrictScreen();
         }
     }
 }
