@@ -16,13 +16,16 @@ public class MainMarge : MiniGamePlayer
 
     private void Start()
     {
-        int rand = Random.Range(0, 1);
-        sr.sprite = mergeSO.Lists[rand].objSprite;
+        int rand = Random.Range(0, 3);
         Level = rand;
+        sr.sprite = mergeSO.Lists[Level].objSprite;
+        this.gameObject.transform.localScale
+                    = new Vector3(mergeSO.Lists[Level].scale, mergeSO.Lists[Level].scale, mergeSO.Lists[Level].scale);
     }
 
     private void Update()
     {
+        if (MergeManager.Instance.IsGameOver) Destroy(this.gameObject); 
         PlayerRestrictScreen();
     }
 
@@ -43,6 +46,7 @@ public class MainMarge : MiniGamePlayer
                 sr.sprite = mergeSO.Lists[++Level].objSprite;
                 this.gameObject.transform.localScale 
                     = new Vector3(mergeSO.Lists[Level].scale, mergeSO.Lists[Level].scale, mergeSO.Lists[Level].scale);
+                MergeManager.Instance.AddScore(Level);
             }
         }
     }
