@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[Serializable]
+public class mergeClass
+{
+    public Sprite objSprite;
+    public float scale; // 합쳐지면 커지는 식
+}
 [CreateAssetMenu(menuName = "SO/MiniGame/WaterMelon/Object")]
 public class MergeObjectSO : ScriptableObject
 {
-    public int level; // 레벨 // 리스트 레벨 순으로 정리
-    public GameObject mergePrefab;
+    public List<mergeClass> Lists;
 }

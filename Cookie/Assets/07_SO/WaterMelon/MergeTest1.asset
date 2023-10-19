@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f4dfb392984ff45b7212c10258eab4, type: 3}
   m_Name: MergeTest1
   m_EditorClassIdentifier: 
-  level: 1
-  mergePrefab: {fileID: 5453364996038093798, guid: 2f5bf0f36fe03ce46ad3f387d6ecb4df, type: 3}
+  Lists:
+  - objSprite: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+    scale: 1
+  - objSprite: {fileID: 21300000, guid: a3ced8f7044b9de4787602a9e9b20ea7, type: 3}
+    scale: 1.2
+  - objSprite: {fileID: 21300000, guid: 2e0cf451cb3d56742aad87ea75993209, type: 3}
+    scale: 1.5

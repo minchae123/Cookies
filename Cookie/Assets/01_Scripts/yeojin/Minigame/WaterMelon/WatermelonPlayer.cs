@@ -22,13 +22,11 @@ public class WatermelonPlayer : MiniGamePlayer
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         mousePos.y = 3.5f;
-        // transform.position = mousePos; // 이 부분을 주석 처리하여 변경
-        rigid.MovePosition(mousePos); // rigidbody를 통한 위치 변경으로 수정
+        rigid.MovePosition(mousePos);
     }
 
     private void Update()
     {
-        PlayerRestrictScreen();
         if (Input.GetMouseButton(0))
         {
             PlayerMove();
@@ -41,7 +39,6 @@ public class WatermelonPlayer : MiniGamePlayer
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        MergeSpawner.Instance.ReSpawn();
         Destroy(this);
     }
 }

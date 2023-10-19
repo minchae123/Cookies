@@ -1436,7 +1436,7 @@ MonoBehaviour:
   timerText: {fileID: 120275649}
   overText: {fileID: 376176771}
   panel: {fileID: 571235576}
-  gameTime: 5
+  gameTime: 30
 --- !u!1 &1631703482
 GameObject:
   m_ObjectHideFlags: 0
