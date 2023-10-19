@@ -18,10 +18,12 @@ public class UpgradeManager : MonoBehaviour
 	public void ClickLevelUp()
 	{
 		GameManager.Instance.user.clickLevel++;
+		GameManager.Instance.LoadSet();
 	}
 
 	public void SecondLevelUp()
 	{
 		GameManager.Instance.user.secondLevel++;
+		GameManager.Instance.LoadSet();
 	}
 }

@@ -23,12 +23,12 @@ public class UIManager : MonoBehaviour
 
 	public void SetSecondPer(float per)
 	{
-		secondPerTxt.text = per.ToString() + "원 /   초당";
+		secondPerTxt.text = per.ToString() + "인기 /   초당";
 	}
 
 	public void SetClickPer(float per)
 	{
-		clickPerTxt.text = per.ToString() + "원 / 클릭당";
+		clickPerTxt.text = per.ToString() + "인기 / 클릭당";
 	}
 
 	public void ShowPopularity(float value)
