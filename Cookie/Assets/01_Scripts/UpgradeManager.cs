@@ -17,13 +17,25 @@ public class UpgradeManager : MonoBehaviour
 
 	public void ClickLevelUp()
 	{
-		GameManager.Instance.user.clickLevel++;
-		GameManager.Instance.LoadSet();
+		if(DataManager.Instance.ClickPrice < GameManager.Instance.user.popularity)
+		{
+			GameManager.Instance.user.clickLevel++;
+			GameManager.Instance.user.popularity -= DataManager.Instance.ClickPrice;
+			GameManager.Instance.LoadSet();
+		}
+		else
+		{
+			return;
+		}
 	}
 
 	public void SecondLevelUp()
 	{
-		GameManager.Instance.user.secondLevel++;
-		GameManager.Instance.LoadSet();
+		if (DataManager.Instance.SecondPrice < GameManager.Instance.user.popularity)
+		{
+			GameManager.Instance.user.secondLevel++;
+			GameManager.Instance.user.popularity -= DataManager.Instance.SecondPrice;
+			GameManager.Instance.LoadSet();
+		}
 	}
 }
