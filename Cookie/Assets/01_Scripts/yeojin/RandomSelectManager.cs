@@ -40,7 +40,7 @@ public class RandomSelectManager : MonoBehaviour
     {
         int idx = GetRandomWeightIndex();
 
-        itemText.text = $"{itemSO.Items[idx].name} ¥Á√∑!!";
+        itemText.text = $"{itemSO.Items[idx].name}\n¥Á√∑!!";
 
         SpriteRenderer sr = itemObj.GetComponent<SpriteRenderer>(); 
         sr.sprite = itemSO.Items[idx].itemSprite;
