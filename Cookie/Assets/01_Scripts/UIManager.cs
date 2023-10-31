@@ -8,6 +8,10 @@ public class UIManager : MonoBehaviour
 {
 	public static UIManager Instance;
 
+	[SerializeField] private TextMeshProUGUI secondPerTxt;
+	[SerializeField] private TextMeshProUGUI clickPerTxt;
+	[SerializeField] private TextMeshProUGUI popularTxt;
+
 	private void Awake()
 	{
 		if (Instance != null)
@@ -16,10 +20,6 @@ public class UIManager : MonoBehaviour
 		}
 		Instance = this;
 	}
-
-	[SerializeField] private TextMeshProUGUI secondPerTxt;
-	[SerializeField] private TextMeshProUGUI clickPerTxt;
-	[SerializeField] private TextMeshProUGUI popularTxt;
 
 	public void SetSecondPer(float per)
 	{
@@ -34,5 +34,15 @@ public class UIManager : MonoBehaviour
 	public void ShowPopularity(float value)
 	{
 		popularTxt.text = value.ToString() + " ¿Œ±‚";
+	}
+
+	public void ShowPanel(GameObject panel)
+	{
+		panel.SetActive(true);
+	}
+	
+	public void ClosePanel(GameObject panel)
+	{
+		panel.SetActive(false);
 	}
 }
